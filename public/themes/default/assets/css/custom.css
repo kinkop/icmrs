@@ -1,0 +1,136 @@
+.main-slider{
+    height: 420px !important;
+}
+
+.logo-title {
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    position: absolute;
+    width: 500px;
+}
+
+.logo-footer h2{
+    font-size: 1.3em !important;
+}
+
+.logo-footer-description {
+    color: #FFFFFF !important;
+}
+
+.user-dashboard ul li a {
+    text-decoration: underline !important;
+}
+
+.user-dashboard ul li.active a {
+    text-decoration: none !important;
+}
+
+.accordion-trigger {
+    background: url('../img/toggle.png') no-repeat scroll right 14px #ebe9e9 !important;
+}
+
+.accordion-trigger:hover,  .accordion-trigger.active{
+    background: url('../img/toggle.png') no-repeat scroll right -69px #FF3D7F !important;
+}
+
+.accordion-container {
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+
+.message-box-container {
+    height: 600px;
+    overflow: auto;
+    border: 4px solid #cccccc;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.message-box-container .message-item
+{
+    margin-bottom: 20px;
+}
+
+.message-box-container .date
+{
+    font-size: 0.7em;
+    font-style: italic;
+}
+
+.message-box-container .other .date{
+    text-align: right;
+}
+
+.message-box-container .message-sender
+{
+    width: 70px;
+    text-align: center;
+}
+
+.message-box-container .message-sender img {
+    width: 36px;
+    height: auto;
+
+}
+
+.message-box-container .other .message-sender{
+    float: left;
+}
+
+.message-box-container .owner .message-sender{
+    float: right;
+}
+
+.message-box-container .message-detail
+{
+    border: 1px solid #000000;
+    padding: 10px;
+    width: 800px;
+    min-height: 80px;
+}
+
+.message-box-container .other .message-detail{
+    float: left;
+}
+
+.message-box-container .owner .message-detail{
+    float: right;
+    background-color: #f4f4f4;
+}
+
+.message-box-container .message-arrow {
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 29px;
+    position: relative;
+    top: 15px;
+}
+
+.message-box-container .other .message-arrow {
+    float: left;
+    background-image: url(../img/chat_arrow_left.png) ;
+    left: 1px;
+}
+
+.message-box-container .owner .message-arrow {
+    float: right;
+    background-image: url(../img/chat_arrow_right.png) ;
+    left: -1px;
+}
+
+
+.ajax-loader {
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    display: none;
+}
+
+.ajax-loader.right {
+    margin-right: 0;
+    margin-left: 10px;
+}

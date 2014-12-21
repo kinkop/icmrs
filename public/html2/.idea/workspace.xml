@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="23927074-202e-492d-a2f8-c3e482adff1d" name="Default" comment="" />
+    <ignored path="ssru_conference_template.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ssru_conference_template" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="ssru_profile.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ssru_profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1004" column="129" selection-start="57030" selection-end="57030" vertical-scroll-proportion="-21.241379" vertical-offset="19464" max-vertical-offset="23360">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#4;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#6;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#8;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#10;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#12;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#14;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#2;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#6;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#8;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#10;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#12;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#14;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feature-elements.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feature-elements.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="915" column="144" selection-start="52213" selection-end="52317" vertical-scroll-proportion="-7.7222223" vertical-offset="17883" max-vertical-offset="23540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="18" selection-start="942" selection-end="942" vertical-scroll-proportion="0.38530067" vertical-offset="536" max-vertical-offset="2322">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/css/skins/pink/pink.css" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/js/theme-options/theme-options.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/ssru_register.html" />
+        <option value="$PROJECT_DIR$/ssru_listener_registration.html" />
+        <option value="$PROJECT_DIR$/ssru_index.html" />
+        <option value="$PROJECT_DIR$/ssru_conference_detail.html" />
+        <option value="$PROJECT_DIR$/ssru_author_registration.html" />
+        <option value="$PROJECT_DIR$/ssru_profile.html" />
+        <option value="$PROJECT_DIR$/css/custom.css" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1358" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theme-options" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssru_conference_template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ssru_conference_template" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="23927074-202e-492d-a2f8-c3e482adff1d" name="Default" comment="" />
+      <created>1410680870014</created>
+      <updated>1410680870014</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12087327" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="78" selection-start="6039" selection-end="6057" vertical-scroll-proportion="0.0" vertical-offset="2227" max-vertical-offset="8360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="291" column="88" selection-start="11019" selection-end="11019" vertical-scroll-proportion="0.0" vertical-offset="5149" max-vertical-offset="8240">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page-register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="407" column="32" selection-start="18141" selection-end="21055" vertical-scroll-proportion="0.0" vertical-offset="7380" max-vertical-offset="12320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_conference_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="74" selection-start="5908" selection-end="5908" vertical-scroll-proportion="0.0" vertical-offset="2403" max-vertical-offset="11960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_author_registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="33" selection-start="3220" selection-end="3220" vertical-scroll-proportion="0.0" vertical-offset="1503" max-vertical-offset="10420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_listener_registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="70" selection-start="0" selection-end="13359" vertical-scroll-proportion="0.0" vertical-offset="2338" max-vertical-offset="7800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="307" column="5" selection-start="13786" selection-end="16305" vertical-scroll-proportion="0.0" vertical-offset="5998" max-vertical-offset="8300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="28" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="160" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1677" column="6" selection-start="32582" selection-end="32587" vertical-scroll-proportion="0.0" vertical-offset="33249" max-vertical-offset="61760" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_conference_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="382" column="30" selection-start="18182" selection-end="18182" vertical-scroll-proportion="0.0" vertical-offset="7347" max-vertical-offset="14260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="307" column="5" selection-start="13786" selection-end="16305" vertical-scroll-proportion="0.0" vertical-offset="5998" max-vertical-offset="8300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="28" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="160" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1677" column="6" selection-start="32582" selection-end="32587" vertical-scroll-proportion="0.0" vertical-offset="33249" max-vertical-offset="61760" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_conference_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="382" column="30" selection-start="18182" selection-end="18182" vertical-scroll-proportion="0.0" vertical-offset="7347" max-vertical-offset="14260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="92" selection-start="6515" selection-end="6515" vertical-scroll-proportion="0.0" vertical-offset="2720" max-vertical-offset="8300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="92" selection-start="6515" selection-end="6515" vertical-scroll-proportion="0.0" vertical-offset="2720" max-vertical-offset="8300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-one-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1044" column="10" selection-start="54841" selection-end="54841" vertical-scroll-proportion="0.0" vertical-offset="10667" max-vertical-offset="23020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-creative.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="25640" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="34" selection-start="4380" selection-end="5084" vertical-scroll-proportion="0.0" vertical-offset="1860" max-vertical-offset="27300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="177" column="26" selection-start="4029" selection-end="7532" vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="8280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/skins/pink/pink.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="75" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="3200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="45" selection-start="3184" selection-end="3184" vertical-scroll-proportion="0.0" vertical-offset="1960" max-vertical-offset="61760" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/theme-options/theme-options.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="17" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3520" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_conference_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="424" column="0" selection-start="23432" selection-end="23432" vertical-scroll-proportion="0.0" vertical-offset="3243" max-vertical-offset="16000" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work-4-columns.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="8" selection-start="18124" selection-end="28797" vertical-scroll-proportion="0.0" vertical-offset="6578" max-vertical-offset="14680" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-one-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="23020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-creative.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="25640" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="27300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="74" selection-start="8195" selection-end="8195" vertical-scroll-proportion="0.0" vertical-offset="3163" max-vertical-offset="27300" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work-4-columns.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="8" selection-start="18124" selection-end="28797" vertical-scroll-proportion="0.43857634" vertical-offset="6578" max-vertical-offset="14680" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-one-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1044" column="10" selection-start="54841" selection-end="54841" vertical-scroll-proportion="0.0" vertical-offset="10667" max-vertical-offset="23020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/skins/pink/pink.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="75" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="3200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/theme-options/theme-options.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="17" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3520" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-creative.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="25640" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1677" column="6" selection-start="32582" selection-end="32587" vertical-scroll-proportion="0.0" vertical-offset="33249" max-vertical-offset="61760" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page-register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="407" column="32" selection-start="18141" selection-end="21055" vertical-scroll-proportion="-26.206896" vertical-offset="7380" max-vertical-offset="12320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page-faq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="383" column="22" selection-start="20289" selection-end="20728" vertical-scroll-proportion="-4.658228" vertical-offset="7292" max-vertical-offset="12160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="47" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="220" column="33" selection-start="10084" selection-end="10697" vertical-scroll-proportion="-15.172414" vertical-offset="3960" max-vertical-offset="27300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="40" selection-start="5600" selection-end="5600" vertical-scroll-proportion="-3.620253" vertical-offset="2794" max-vertical-offset="8500">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_listener_registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="40" selection-start="5600" selection-end="5600" vertical-scroll-proportion="0.19447641" vertical-offset="2911" max-vertical-offset="8060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="48" selection-start="6494" selection-end="6494" vertical-scroll-proportion="-13.793103" vertical-offset="2680" max-vertical-offset="8620">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_conference_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="44" selection-start="6277" selection-end="6277" vertical-scroll-proportion="-5.37931" vertical-offset="2924" max-vertical-offset="12220">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_author_registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="40" selection-start="5600" selection-end="5600" vertical-scroll-proportion="0.44645005" vertical-offset="2709" max-vertical-offset="10680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature-elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="915" column="144" selection-start="52213" selection-end="52317" vertical-scroll-proportion="-7.7222223" vertical-offset="17883" max-vertical-offset="23540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssru_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1004" column="129" selection-start="57030" selection-end="57030" vertical-scroll-proportion="-21.241379" vertical-offset="19464" max-vertical-offset="23360">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#4;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#6;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#8;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#10;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#12;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#14;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#2;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#4;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#6;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#8;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#10;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#12;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#14;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="18" selection-start="942" selection-end="942" vertical-scroll-proportion="0.38530067" vertical-offset="536" max-vertical-offset="2322">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
