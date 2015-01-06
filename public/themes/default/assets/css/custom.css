@@ -134,3 +134,15 @@
     margin-right: 0;
     margin-left: 10px;
 }
+
+
+.error-input {
+    background-color: #FCAFAF;
+}
+
+.required_field {
+    color: red;
+    font-size: 0.9em;
+    font-weight: normal;
+    display: none;
+}

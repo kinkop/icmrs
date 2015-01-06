@@ -79,6 +79,11 @@ var CustomLib = {
     formReset: function(form)
     {
         $('input[type="text"], input[type="password"], input[type="checkbox"], input[type="radio"], textarea, select', form).val('').prop('checked', false).prop('selected', false);
+    },
+
+    validateEmail: function(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
 
 }

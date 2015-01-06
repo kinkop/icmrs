@@ -12,7 +12,8 @@
     <!-- Post Meta -->
     <div class="post-meta">
         <span><i class="fa fa-calendar"></i> Nov 10, 2012 </span>
-        <button class="btn btn-primary btn-lg pull-right"  data-toggle="modal" data-target="#registrationConferenceType">REGISTTER THIS CONFERENCE</button>
+        <a class="btn btn-primary btn-lg pull-right" id="register_conference_btn" href="#register_conference_box">REGISTTER THIS CONFERENCE</a>
+        <!--<button class="btn btn-primary btn-lg pull-right"  data-toggle="modal" data-target="#registrationConferenceType">REGISTTER THIS CONFERENCE</button>-->
 
         <div class="modal fade" id="registrationConferenceType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
@@ -48,3 +49,12 @@
 
 </article>
 <!-- End Item Post -->
+
+
+<div id="register_conference_box" style="display: none;">
+     <h3 style="text-align: center;">Choose registration type</h3>
+     <div style="text-align: center;">
+         <a class="btn btn-primary" href="{{ $conference->frontEndViewUrl  }}/submit_paper">Author Registration</a> |  <a class="btn btn-primary" href="{{ $conference->frontEndViewUrl  }}/listener_register">Listener Registration</a>
+
+     </div>
+</div>

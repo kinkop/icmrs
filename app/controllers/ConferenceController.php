@@ -41,6 +41,9 @@ class ConferenceController extends BaseController {
         Theme::setCurrentConferenceUrl($view['conference']->frontEndViewUrl);
         $this->setGoogleMapStaticMap($this->conferenceId);
 
+        \Theme::asset()->container('header')->add('fancybox-style', 'assets/js/fancy-box/jquery.fancybox.css');
+        \Theme::asset()->container('lower-footer')->add('fancybox-script', 'assets/js/fancy-box/jquery.fancybox.pack.js');
+        \Theme::asset()->container('lower-footer')->usePath()->add('conference-detail-script', 'js/custom/pages/conference_detail.js');
         return $this->render('conference.detail', $view);
     }
 
@@ -278,6 +281,8 @@ class ConferenceController extends BaseController {
 
         $view['response_message'] = \Theme::partial('message', array('data' => \Session::get('response_message')));
 
+        Theme::asset()->container('header')->add('fancybox-style', 'assets/js/fancy-box/jquery.fancybox.css');
+        Theme::asset()->container('lower-footer')->add('fancybox-script', 'assets/js/fancy-box/jquery.fancybox.pack.js');
         Theme::asset()->container('lower-footer')->usePath()->add('custom-pages-submit-apaper-script', 'js/custom/pages/submit_paper.js');
 
 
@@ -286,6 +291,9 @@ class ConferenceController extends BaseController {
 
     public function postSubmitPaper($conference_slug)
     {
+        Debug::pr(Input::all());
+
+        exit();
         $conferenceModel = new Conference();
         $conferenceRegisterModel = new ConferenceRegister();
 
@@ -308,7 +316,7 @@ class ConferenceController extends BaseController {
         $paperData = array(
             'conference_register_id' => '',
             'title' => $inputData['title'],
-            'paper_type' => $inputData['paper_type'],
+            'paper_type' => ConferencePaper::PAPER_TYPE_FULL,
             'presentation_type' => $inputData['presentation_type'],
             'authors' => $inputData['authors'],
             'abstract' => $inputData['abstract'],
@@ -330,14 +338,13 @@ class ConferenceController extends BaseController {
             $conferenceRegisterId = $conferenceRegisterModel->addConferenceRegister($conferenceRegisterData);
             $paperData['conference_register_id'] = $conferenceRegisterId;
             $conferencePaperId = $conferencePaperModel->addConferencePaper($paperData);
+            $conferencePaperModel->sendSubmitPaperEmail($conferencePaperId);
         }
 
 
         $this->uploadFile($conferencePaperId, 'file1', 'file1');
         $this->uploadFile($conferencePaperId, 'file2', 'file2');
         $this->uploadFile($conferencePaperId, 'file3', 'file3');
-
-        $conferencePaperModel->sendSubmitPaperEmail($conferencePaperId);
 
 
         Session::flash('success_submit_paper', 1);
@@ -348,6 +355,8 @@ class ConferenceController extends BaseController {
         if ($type == 'edit') {
             $message = 'Updated paper successful.';
         }
+
+        //return $this->json(true, 'success');
 
         return Redirect::to($conference->frontEndViewUrl . '/submit_paper')->with('response_message', array(
                 'type' => 'success',

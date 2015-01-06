@@ -12,6 +12,7 @@ class ConferencePaper extends BaseModel
     const PAPER_TYPE_ABSTRACT = 'abstract';
     const PAPER_TYPE_REVIEW = 'review';
     const PAPER_TYPE_ORIGINAL_RESEARCH = 'original_research';
+    const PAPER_TYPE_FULL = 'full';
 
     const PAPER_PRESENTATION_TYPE_ORAL = 'oral';
     const PAPER_PRESENTATION_TYPE_POSTER = 'poster';
@@ -30,7 +31,8 @@ class ConferencePaper extends BaseModel
         $datas = array(
             static::PAPER_TYPE_ABSTRACT => 'Abstract',
             static::PAPER_TYPE_REVIEW => 'Review',
-            static::PAPER_TYPE_ORIGINAL_RESEARCH => 'Original Research'
+            static::PAPER_TYPE_ORIGINAL_RESEARCH => 'Original Research',
+            static::PAPER_TYPE_FULL => 'Full Paper'
         );
 
         if (!empty($key) && isset($datas[$key])) {

@@ -4,6 +4,8 @@
 
     {{ Theme::partial('top_header') }}
 
+    {{ Theme::asset()->container('header')->styles(); }}
+
     {{ Theme::asset()->container('header')->scripts(); }}
 
 
