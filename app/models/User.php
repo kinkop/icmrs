@@ -39,7 +39,20 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
         if (isset($data['status'])) {
             $status = $data['status'];
         }
+
+        $invitedUserId = 0;
+        if (isset($data['invited_user_id'])) {
+            $invitedUserId = $data['invited_user_id'];
+        }
+
+        $isSetPassword = 1;
+        if (isset($data['is_set_password'])) {
+           $isSetPassword = $data['is_set_password'];
+        }
+
         $user->status = $status;
+        $user->invited_user_id = $invitedUserId;
+        $user->is_set_password = $isSetPassword;
         $user->save();
 
         if ($user) {
@@ -209,6 +222,14 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
         $data->statusText = $this->getStatuses($data->status);
         $data->editUrl = URL::to('admin/user/edit/' . $data->id);
         $data->deleteUrl = URL::to('admin/user/delete/' . $data->id);
+    }
+
+    public function getUserByEmail($email)
+    {
+        $result = DB::table('users')
+                ->where('email', $email);
+
+        return $result->first();
     }
 
 }

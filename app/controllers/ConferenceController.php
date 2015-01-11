@@ -291,7 +291,11 @@ class ConferenceController extends BaseController {
 
     public function postSubmitPaper($conference_slug)
     {
-        Debug::pr(Input::all());
+        $inputData = Input::all();
+
+        if (isset($inputData['people_email']) && !empty($inputData['people_email'])) {
+            $this->saveInvitedPeoples($inputData);
+        }
 
         exit();
         $conferenceModel = new Conference();
@@ -305,7 +309,7 @@ class ConferenceController extends BaseController {
 
         $conferenceModel->generateDatas($conference);
         $this->conferenceId = $conference->id;
-        $inputData = Input::all();
+
 
         $conferenceRegisterData = array(
             'conference_id' =>  $this->conferenceId ,
@@ -347,6 +351,8 @@ class ConferenceController extends BaseController {
         //$this->uploadFile($conferencePaperId, 'file3', 'file3');
 
 
+
+
         Session::flash('success_submit_paper', 1);
         Session::flash('success_submit_paper_type', $type);
 
@@ -358,11 +364,68 @@ class ConferenceController extends BaseController {
 
         //return $this->json(true, 'success');
 
+        if ($type == 'add') {
+            return Redirect::to($conference->frontEndViewUrl . '/submit_paper_success')->with('response_message', array(
+                    'type' => 'success',
+                    'text' => $message
+                )
+            );
+        }
+
         return Redirect::to($conference->frontEndViewUrl . '/submit_paper')->with('response_message', array(
                 'type' => 'success',
                 'text' => $message
             )
         );
+    }
+
+    protected function saveInvitedPeoples($inputData)
+    {
+        $userModel = new User();
+        $conferenceRegisterModel = new ConferenceRegister();
+        $numPeoples = sizeof($inputData['people_email']);
+
+        $userIds = [];
+        if ($numPeoples) {
+            for ($i = 0; $i < $numPeoples; ++$i) {
+                $email = $inputData['people_email'][$i];
+                $firstName = $inputData['people_first_name'][$i];
+                $lastName = $inputData['people_last_name'][$i];
+
+                $data = array(
+                    'username' => $email,
+                    'password' => md5('371985'),
+                    'user_group_id' => UserGroup::USER,
+                    'status' => 0,
+                    'invited_user_id' => $this->loginUserId,
+                    'is_set_password' => 0
+                );
+
+                $userDetailData = array(
+                    'title' => '',
+                    'first_name' => $firstName,
+                    'last_name' => $lastName,
+                    'department' => '',
+                    'country_id' => 1,
+                    'institution' => '',
+                    'city' => ''
+                );
+
+                if (!$userModel->isEmailExists($email)) {
+                    $userIds[] = $userModel->addUser($data, $userDetailData);
+                } else {
+                    $user = $userModel->getUserByEmail($email);
+                    if ($user) {
+                        if (!$conferenceRegisterModel->isRegistered($this->conferenceId, $user->id)) {
+                            $userIds[] = $user->id;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        Debug::pr($userIds);
     }
 
     public function getSuccessSubmitPaper($conference_slug)
