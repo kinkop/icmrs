@@ -78,7 +78,7 @@ $(function(){
         }
 
         //Authors
-        var authors = $('textarea[name="authors"]');
+        var authors = $('textarea[name="authors"]', form);
         if (authors.val().trim() == '') {
             validatePassed = validatePassed && false;
             showValidateError('authors', authors, false);
@@ -86,6 +86,39 @@ $(function(){
             showValidateError('authors', authors, true);
         }
 
+        //Abstract
+        var abstract = $('textarea[name="abstract"]', form);
+        if (abstract.val().trim() == '') {
+            validatePassed = validatePassed && false;
+            showValidateError('abstract', abstract, false);
+        } else {
+            showValidateError('abstract', abstract, true);
+        }
+
+        //Keywords
+        var keywords = $('textarea[name="keywords"]', form);
+        if (keywords.val().trim() == '') {
+            validatePassed = validatePassed && false;
+            showValidateError('keywords', keywords, false);
+        } else {
+            showValidateError('keywords', keywords, true);
+        }
+
+        //File1
+        var file1 = $('input[name="file1"]', form);
+        if (file1.val()  == '') {
+            validatePassed = validatePassed && false;
+            showValidateError('file1', null, false);
+        } else {
+            showValidateError('file1', null, true);
+            if (!file1.val().match(/\.pdf|\.doc|\.docx|\.odt|\.rtf|\.txt/gi)) {
+                validatePassed = validatePassed && false;
+                showValidateError('file1_ext', null, false);
+            } else {
+                showValidateError('file1_ext', null, true);
+            }
+
+        }
 
         return validatePassed;
     }

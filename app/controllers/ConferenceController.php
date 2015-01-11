@@ -344,7 +344,7 @@ class ConferenceController extends BaseController {
 
         $this->uploadFile($conferencePaperId, 'file1', 'file1');
         $this->uploadFile($conferencePaperId, 'file2', 'file2');
-        $this->uploadFile($conferencePaperId, 'file3', 'file3');
+        //$this->uploadFile($conferencePaperId, 'file3', 'file3');
 
 
         Session::flash('success_submit_paper', 1);

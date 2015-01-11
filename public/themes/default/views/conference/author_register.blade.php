@@ -128,7 +128,7 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12">
-                        <label>File 1 * <span class="required_field file1">(Please attach a file.)</span></label>
+                        <label>File 1 * <span class="required_field file1">(Please attach a file.)</span><span class="required_field file1_ext">(A file type must be pdf, doc, docx, odt, rtf or txt)</span></label>
                         <p>
                             @if (!empty($data['file1_url']))
                                 <a href="{{ $data['file1_url'] }}" target="_blank">View uploaded file</a>
@@ -155,6 +155,7 @@
                     </div>
                 </div>
             </div>
+            <!--
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12">
@@ -169,7 +170,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="row">
                 <div class="col-md-12">
                     {{ Theme::partial('error', array('hide' => true, 'class' => 'submitPaperError')) }}
