@@ -112,5 +112,16 @@ class Conference extends BaseModel {
         return $conference->first();
     }
 
+    public function getConferenceUrl($id)
+    {
+        $conference = static::find($id);
+
+        if ($conference) {
+            return URL::to($conference->url_slug);
+        }
+
+        return '';
+    }
+
 
 } 

@@ -50,7 +50,8 @@ class RegisterController extends \BaseController {
         $userId = $userModel->addUser(array(
             'username' => $inputData['email'],
             'password' => $inputData['password'],
-            'user_group_id' => UserGroup::USER
+            'user_group_id' => UserGroup::USER,
+            'is_set_password' => 1
         ), array(
             'title' => $inputData['title'],
             'first_name' => $inputData['first_name'],

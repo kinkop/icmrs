@@ -17,6 +17,12 @@ Route::get('/', 'HomeController@getIndex');
 //Conference detail
 //Route::get('2015/ICMSR', 'ConferenceController@getIndex');
 
+//Invitee confirm register
+Route::get('confirm_register/success', 'ConfirmRegisterController@getSuccess');
+Route::post('confirm_register', 'ConfirmRegisterController@postIndex');
+Route::get('confirm_register/{token}', 'ConfirmRegisterController@getIndex')->where('token', '.+');
+
+
 //Login
 Route::controller('login/ajax', 'Controllers\Ajaxs\LoginController');
 Route::controller('login', 'LoginController');
@@ -56,12 +62,13 @@ Route::group(array('before' => 'auth.admin'), function(){
     Route::get('admin/conferences/manage/{id}/content/{type}', 'Controllers\Admin\ConferenceController@getEditContent');
     Route::get('admin/conferences/manage/{id}', 'Controllers\Admin\ConferenceController@getManage');
     Route::post('admin/conferences/manage/save-slide', 'Controllers\Admin\ConferenceController@postSaveSlide');
+    Route::controller('admin/conference_register', 'Controllers\Admin\ConferenceRegisterController');
     Route::controller('admin/contents', 'Controllers\Admin\ContentController');
     Route::controller('admin/user', 'Controllers\Admin\UserController');
     Route::controller('admin/conferences', 'Controllers\Admin\ConferenceController');
     Route::controller('admin/logout', 'Controllers\Admin\LogoutController');
+    Route::get('admin/notifications', 'Controllers\Admin\NotificationController@getNotifications');
     Route::controller('admin', 'Controllers\Admin\DashboardController');
-
 });
 
 

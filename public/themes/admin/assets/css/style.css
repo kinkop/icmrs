@@ -5686,3 +5686,6 @@ a.guest-on i {
     margin-right: 10px;
 }
 
+.unread {
+    background-color: #cccccc;
+}

@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'icmrs',
 			'username'  => 'root',
-			'password'  => '371985',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

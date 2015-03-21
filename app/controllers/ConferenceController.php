@@ -291,15 +291,11 @@ class ConferenceController extends BaseController {
 
     public function postSubmitPaper($conference_slug)
     {
-        $inputData = Input::all();
-
-        if (isset($inputData['people_email']) && !empty($inputData['people_email'])) {
-            $this->saveInvitedPeoples($inputData);
-        }
-
-        exit();
         $conferenceModel = new Conference();
         $conferenceRegisterModel = new ConferenceRegister();
+
+        $inputData = Input::all();
+
 
         $conference = $conferenceModel->getByUrlSlug($conference_slug, true);
 
@@ -327,7 +323,8 @@ class ConferenceController extends BaseController {
             'keywords' => $inputData['keywords'],
             'refs' => $inputData['refs'],
             'note' => $inputData['note'],
-            'conference_topic_id' => $inputData['conference_topic_id']
+            'conference_topic_id' => $inputData['conference_topic_id'],
+            'conference_paper_status_id' => ConferencePaperStatus::PAPER_SUBMISSION
         );
 
         $conferencePaperModel = new ConferencePaper();
@@ -343,14 +340,25 @@ class ConferenceController extends BaseController {
             $paperData['conference_register_id'] = $conferenceRegisterId;
             $conferencePaperId = $conferencePaperModel->addConferencePaper($paperData);
             $conferencePaperModel->sendSubmitPaperEmail($conferencePaperId);
-        }
+            $conferenceRegisterModel->sendSubmitPaperEmailToAdmins($conferencePaperId);
 
+            $adminNotificationModel = new AdminNotification();
+            $adminNotificationModel->addNotification(
+                AdminNotification::NOTIFICATION_TYPE_CONFERENCE,
+                AdminNotification::NOTIFICATION_ACTION_REGISTER,
+                $conferenceRegisterId
+            );
+        }
 
         $this->uploadFile($conferencePaperId, 'file1', 'file1');
         $this->uploadFile($conferencePaperId, 'file2', 'file2');
         //$this->uploadFile($conferencePaperId, 'file3', 'file3');
 
-
+        if ($type == 'add') {
+            if (isset($inputData['people_email']) && !empty($inputData['people_email'])) {
+                $this->saveInvitedPeoples($inputData);
+            }
+        }
 
 
         Session::flash('success_submit_paper', 1);
@@ -365,7 +373,7 @@ class ConferenceController extends BaseController {
         //return $this->json(true, 'success');
 
         if ($type == 'add') {
-            return Redirect::to($conference->frontEndViewUrl . '/submit_paper_success')->with('response_message', array(
+            return Redirect::to($conference->frontEndViewUrl . '/success-submit-paper')->with('response_message', array(
                     'type' => 'success',
                     'text' => $message
                 )
@@ -386,6 +394,7 @@ class ConferenceController extends BaseController {
         $numPeoples = sizeof($inputData['people_email']);
 
         $userIds = [];
+        $userRegistred = [];
         if ($numPeoples) {
             for ($i = 0; $i < $numPeoples; ++$i) {
                 $email = $inputData['people_email'][$i];
@@ -398,7 +407,8 @@ class ConferenceController extends BaseController {
                     'user_group_id' => UserGroup::USER,
                     'status' => 0,
                     'invited_user_id' => $this->loginUserId,
-                    'is_set_password' => 0
+                    'is_set_password' => 0,
+                    'confirm_register_token' => Hash::make($email)
                 );
 
                 $userDetailData = array(
@@ -413,19 +423,37 @@ class ConferenceController extends BaseController {
 
                 if (!$userModel->isEmailExists($email)) {
                     $userIds[] = $userModel->addUser($data, $userDetailData);
+                    $userRegistred[] = false;
                 } else {
                     $user = $userModel->getUserByEmail($email);
                     if ($user) {
                         if (!$conferenceRegisterModel->isRegistered($this->conferenceId, $user->id)) {
                             $userIds[] = $user->id;
+                            $userRegistred[] = true;
                         }
                     }
                 }
             }
         }
 
+        if (!empty($userIds)) {
+            $i = 0;
+            foreach ($userIds as $userId) {
+                $data = array(
+                    'conference_id' => $this->conferenceId,
+                    'user_id' => $userId,
+                    'type' => ConferenceRegister::TYPE_LISTENER,
+                    'registered_by' => $this->loginUserId
+                );
+                $conferenceRegisterId = $conferenceRegisterModel->addConferenceRegister($data);
 
-        Debug::pr($userIds);
+                if ($conferenceRegisterId) {
+                    $conferenceRegisterModel->sendInvitePeopleEmail($userId, $conferenceRegisterId, $userRegistred[$i]);
+                }
+
+                ++$i;
+            }
+        }
     }
 
     public function getSuccessSubmitPaper($conference_slug)
@@ -509,7 +537,16 @@ class ConferenceController extends BaseController {
             'user_id' => $this->loginUserId,
             'type' => ConferenceRegister::TYPE_LISTENER
         );
-        $conferenceRegisterModel->addConferenceRegister($data);
+        $conferenceRegisterId = $conferenceRegisterModel->addConferenceRegister($data);
+
+        if ($conferenceRegisterId) {
+            $conferenceListenerModel = new ConferenceListener();
+            $data = array(
+                'conference_register_id' => $conferenceRegisterId,
+                'conference_listener_status_id' => ConferenceListenerStatus::LISTENER_REGISTER
+            );
+            $conferenceListenerModel->addConferenceListener($data);
+        }
 
         $conferenceModel = new Conference();
         $conference = $conferenceModel->get($inputData['conference_id']);

@@ -75,7 +75,7 @@ class BaseController extends Controller {
     {
         $output['messages'] = $this->message->all();
         $output['messages_format'] = $this->message->all($delimeter);
-        $output['messages_raw'] = implode('', $output['messages_format']);
+        $output['messages_raw'] = implode($delimeter,  $output['messages']);
 
         return $output;
 

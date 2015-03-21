@@ -5,7 +5,7 @@
             case 'success':
         ?>
         <div class="alert alert-success">
-            <strong>Success!</strong> {{ $data['text'] }}
+            <strong>Success!</strong><br /> {{ $data['text'] }}
         </div>
 
         <?php
@@ -14,7 +14,7 @@
             case 'error':
         ?>
         <div class="alert alert-danger">
-            <strong>Error!</strong> {{ $data['text'] }}
+            <strong>Error!</strong><br /> {{ $data['text'] }}
         </div>
 
         <?php

@@ -50,6 +50,10 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
            $isSetPassword = $data['is_set_password'];
         }
 
+        if (isset($data['confirm_register_token'])) {
+            $user->confirm_register_token = $data['confirm_register_token'];
+        }
+
         $user->status = $status;
         $user->invited_user_id = $invitedUserId;
         $user->is_set_password = $isSetPassword;
@@ -230,6 +234,53 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
                 ->where('email', $email);
 
         return $result->first();
+    }
+
+    public function getUserByConfirmRegisterToken($confirmRegisterToken, $includeUserDetail = false)
+    {
+        $result = DB::table('users as u');
+
+        if ($includeUserDetail) {
+            $result->select(DB::raw('
+                u.id as user_id,
+                u.*,
+                ud.*
+            '));
+            $result->join('user_details as ud', 'ud.user_id', '=', 'u.id');
+        } else {
+            $result->select(DB::raw('
+                u.id as user_id,
+                u.*
+            '));
+        }
+
+        $result->where('u.confirm_register_token', $confirmRegisterToken);
+
+        return $result->first();
+    }
+
+    public function setSetPasswordStatus($userId, $status)
+    {
+        $user = static::find($userId);
+
+        if ($user) {
+            $user->is_set_password = $status;
+            $user->save();
+        }
+
+        return true;
+    }
+
+    public function resetConfirmRegisterToken($userId)
+    {
+        $user = static::find($userId);
+
+        if ($user) {
+            $user->confirm_register_token = '';
+            $user->save();
+        }
+
+        return true;
     }
 
 }

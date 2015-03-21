@@ -27,6 +27,13 @@
     <link href="{{ Theme::asset()->url('css/style-responsive.css')  }}" rel="stylesheet" />
 
 
+      <script>
+          var GlobalVars = {
+              baseUrl: '{{ url()  }}'
+          };
+      </script>
+
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -48,6 +55,108 @@
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- notification dropdown start-->
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge bg-warning notification_unreads"></span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <div class="notify-arrow notify-arrow-yellow"></div>
+                            <li>
+                                <p class="yellow">You have <span class="notification_unreads"></span> new notifications</p>
+                            </li>
+                            <ul id="notification-list">
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        Server #3 overloaded.
+                                        <span class="small italic">34 mins</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                                        Server #10 not respoding.
+                                        <span class="small italic">1 Hours</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--<li>
+                                <a href="#">See all notifications</a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <!-- notification dropdown end -->
+
+                    <!-- inbox dropdown start-->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-important"></span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <!--<div class="notify-arrow notify-arrow-red"></div>
+                            <li>
+                                <p class="red">You have 5 new messages</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Jonathan Smith</span>
+                                    <span class="time">Just now</span>
+                                    </span>
+                                    <span class="message">
+                                        Hello, this is an example msg.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Jhon Doe</span>
+                                    <span class="time">10 mins</span>
+                                    </span>
+                                    <span class="message">
+                                     Hi, Jhon Doe Bhai how are you ?
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Jason Stathum</span>
+                                    <span class="time">3 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                        This is awesome dashboard.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Jondi Rose</span>
+                                    <span class="time">Just now</span>
+                                    </span>
+                                    <span class="message">
+                                        Hello, this is metrolab
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">See all messages</a>
+                            </li>-->
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                </ul>
 
                 <!--  notification end -->
             </div>
@@ -95,6 +204,17 @@
                             <span>Conferences</span>
                         </a>
                    </li>
+
+                  <li class="sub-menu dcjq-parent-li">
+                      <a href="javascript:;" class="dcjq-parent <?php echo (Theme::getActiveMenu() == 'conference_register') ? 'active' : ''; ?>">
+                          <i class="fa fa-laptop"></i>
+                          <span>Conference registers</span>
+                          <span class="dcjq-icon"></span></a>
+                      <ul class="sub">
+                          <li><a href="{{ URL::to('admin/conference_register/author') }}">Author register</a></li>
+                          <li><a href="{{ URL::to('admin/conference_register/listener') }}">Listener regsiter</a></li>
+                      </ul>
+                  </li>
 
 
                      <li>
@@ -325,6 +445,7 @@
     <script src="{{ Theme::asset()->url('js/sparkline-chart.js')  }}"></script>
     <script src="{{ Theme::asset()->url('js/easy-pie-chart.js')  }}"></script>
     <script src="{{ Theme::asset()->url('js/count.js')  }}"></script>
+    <script src="{{ Theme::asset()->url('js/main.js')  }}"></script>
 
   <script>
 

@@ -70,6 +70,7 @@ class ConferencePaper extends BaseModel
         $conferencePaper->refs = $data['refs'];
         $conferencePaper->note = $data['note'];
         $conferencePaper->conference_topic_id = $data['conference_topic_id'];
+        $conferencePaper->conference_paper_status_id = $data['conference_paper_status_id'];
 
         $conferencePaper->save();
 

@@ -1,0 +1,13 @@
+﻿SLide 3:
+	- Haystack :  High-performance photo storage/retrieval system
+
+Slide 4: 
+	- Erlang:   Facebook uses Erlang to power the backend of its chat service, handling more than 100 million active users.
+
+SLide 5:
+
+	ทำไม facebook ถึงใช้ php เป็นตัวทำ front-end ของฝั่ง server side
+	- เรียนรู้ง่าย
+	- เป็น open source
+        - syntax ที่คุ้นเคย เพราะมากจาก c, c++
+	- ผู้พัฒนาเยอะ หาโปรแกรมเมอร์ทำได้ง่าย

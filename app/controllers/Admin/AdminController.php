@@ -14,4 +14,9 @@ class AdminController extends \BaseController
 
     protected $theme = 'admin';
 
+    function __construct()
+    {
+        parent::__construct();
+    }
+
 } 
