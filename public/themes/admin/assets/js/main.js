@@ -1,9 +1,9 @@
 $(function(){
     AdminMainLib.getNotifications();
 
-    //setInterval(function(){
+    setInterval(function(){
         AdminMainLib.getNotifications();
-    //}, 10000)
+    }, 5000)
 });
 
 
@@ -26,7 +26,11 @@ var AdminMainLib = {
 
     setNotitificationUnreads: function(number)
     {
-        $('.notification_unreads').html(number);
+        if (number < 1) {
+            $('.notification_unreads').hide();
+        } else {
+            $('.notification_unreads').html(number).show();
+        }
     },
 
     generateNotificationList: function(items)
