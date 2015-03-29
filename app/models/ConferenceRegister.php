@@ -93,10 +93,16 @@ class ConferenceRegister extends  BaseModel
 
                 $data['is_already_registered'] = $userAlreadyRegistered;
 
-                Mail::later(5, 'emails.conference.invite', $data, function($message)  use ($mailData)
+                $mailBody = View::make('emails.conference.invite', $data)->render();
+
+                Services\Mail::send(array('email' => $mailData['email'], 'name' => $mailData['name']),
+                    'ICMRS 2015 - You was added to ' . $mailData['conference_name'] . ' conference as listener',
+                    $mailBody);
+
+                /*Mail::later(5, 'emails.conference.invite', $data, function($message)  use ($mailData)
                 {
                     $message->to( $mailData['email'], $mailData['name'])->subject('ICMRS 2015 - You was added to ' . $mailData['conference_name'] . ' conference as listener');
-                });
+                });*/
             }
         }
 
@@ -121,16 +127,24 @@ class ConferenceRegister extends  BaseModel
                         $mailData['name'] = $userDetail['first_name'] . ' ' . $userDetail['last_name'];
                         $data['submitter_user'] = $submitUserData;
                         $data['conference_paper'] = $conferencePaper->toArray();
-                        Mail::send('emails.conference.admin_noti_submit_paper', $data, function($message)  use ($mailData)
+
+
+                        $mailBody = View::make('emails.conference.admin_noti_submit_paper', $data)->render();
+
+                        Services\Mail::send(array('email' => $mailData['email'], 'name' => $mailData['name']),
+                            'New paper submitted (' . time() . ')',
+                            $mailBody);
+                        /*Mail::send('emails.conference.admin_noti_submit_paper', $data, function($message)  use ($mailData)
                         {
                             $message->to( $mailData['email'], $mailData['name'])->subject('New paper submitted (' . time() . ')');
-                        });
+                        });*/
                     }
 
                 }
             }
         }
     }
+
 
     public function getById($id, $includeUserData = false)
     {

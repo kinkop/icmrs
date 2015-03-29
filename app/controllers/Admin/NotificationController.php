@@ -24,7 +24,10 @@ class NotificationController extends \Controllers\Admin\AdminController {
                 'id' => $notification->id,
                 'message' => $notification->generated_message,
                 'readed' => $notification->readed,
-                'date' => $notification->created_at
+                'date' => $notification->created_at,
+                'ago_time' => $notification->ago_time,
+                'view_url' => $notification->view_url,
+                'icon' => $notification->icon
             );
         }
 

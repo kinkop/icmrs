@@ -271,7 +271,15 @@ class ConferencePaper extends BaseModel
             $_data[$key] = $val;
         }
 
-        Mail::later(5, 'emails.conference.submit_paper', $_data, function($message)  use ($mailData)
+        $mailBody = View::make('emails.conference.submit_paper', $_data)->render();
+
+        Services\Mail::send(array('email' => $mailData['email'], 'name' => $mailData['name']),
+            'Paper submission for ' . $mailData['data']->code . ' ' . $mailData['data']->name,
+            $mailBody);
+
+        return;
+
+        Mail::send('emails.conference.submit_paper', $_data, function($message)  use ($mailData)
         {
             $message->to( $mailData['email'], $mailData['name'])->subject('Paper submission for ' . $mailData['data']->code . ' ' . $mailData['data']->name);
         });

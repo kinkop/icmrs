@@ -63,26 +63,12 @@
                             <i class="fa fa-bell-o"></i>
                             <span class="badge bg-warning notification_unreads"></span>
                         </a>
-                        <ul class="dropdown-menu extended notification">
+                        <ul class="dropdown-menu extended notification" style="width: 400px; max-width: 400px;">
                             <div class="notify-arrow notify-arrow-yellow"></div>
                             <li>
                                 <p class="yellow">You have <span class="notification_unreads"></span> new notifications</p>
                             </li>
                             <ul id="notification-list">
-                                <li>
-                                    <a href="#">
-                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                        Server #3 overloaded.
-                                        <span class="small italic">34 mins</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                                        Server #10 not respoding.
-                                        <span class="small italic">1 Hours</span>
-                                    </a>
-                                </li>
                             </ul>
                             <!--<li>
                                 <a href="#">See all notifications</a>

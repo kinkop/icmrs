@@ -5687,5 +5687,20 @@ a.guest-on i {
 }
 
 .unread {
-    background-color: #cccccc;
+
+
+}
+.unread a {
+    background-color:#e4e3e3;
+    color: #000;
+}
+
+.readed a {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.dropdown-menu.extended{
+    max-width: 500px !important;
+    width: 500px !important;
 }

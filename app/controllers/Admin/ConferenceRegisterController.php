@@ -50,6 +50,11 @@ class ConferenceRegisterController extends \Controllers\Admin\AdminController
 
     public function getDetail($conferenceRegisterId)
     {
+        $notificationAdminModel = new \AdminNotification();
+        $notificationAdminModel->setReaded(\AdminNotification::NOTIFICATION_TYPE_CONFERENCE,
+                                            \AdminNotification::NOTIFICATION_ACTION_REGISTER,
+                                            $conferenceRegisterId);
+
         $view = array();
 
         $breadcrumbs = array(

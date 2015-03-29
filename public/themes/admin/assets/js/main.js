@@ -1,9 +1,9 @@
 $(function(){
     AdminMainLib.getNotifications();
 
-    setInterval(function(){
+    //setInterval(function(){
         AdminMainLib.getNotifications();
-    }, 10000)
+    //}, 10000)
 });
 
 
@@ -40,10 +40,10 @@ var AdminMainLib = {
             }
             var item = [
                 '<li class="' + cls + '">',
-                    '<a href="#">',
-                    '<span class="label label-danger"><i class="fa fa-bolt"></i></span>',
-                    'Server #3 overloaded.',
-                    '<span class="small italic">34 mins</span>',
+                    '<a href="' + items[i].view_url + '">',
+                    '<span class="label label-danger"><i class="fa ' + items[i].icon + '"></i></span>&nbsp;',
+                    items[i].message,
+                    '<span class="small italic" style="display: block; text-align: right;">' + items[i].ago_time + '</span>',
                     '</a>',
                 '</li>'
             ]. join('');

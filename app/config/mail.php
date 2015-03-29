@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'mail',
+	'driver' => 'smtp',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'ssruconferenceicmsr2015@gmail.com', 'name' => 'SSRU CONFERENCE'),
+	'from' => array('address' => 'username@domain.tld', 'name' => 'SSRU CONFERENCE'),
 
 	/*
 	|--------------------------------------------------------------------------

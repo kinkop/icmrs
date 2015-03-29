@@ -29,9 +29,14 @@ class AdminNotification extends BaseModel
 
     public function getNotifications()
     {
-        $result = DB::table('admin_notifications')
-                  ->orderBy('readed', 'ASC')
-                  ->orderBy('created_at', 'DESC');
+        $result = DB::table('admin_notifications as an')
+                    ->select(DB::raw('
+                        an.*,
+                        cr.type as register_type
+                    '))
+                  ->join('conference_registers as cr', 'cr.id', '=', 'an.element_id')
+                  ->orderBy('an.readed', 'ASC')
+                  ->orderBy('an.created_at', 'DESC');
 
         return $result->get();
     }
@@ -57,6 +62,19 @@ class AdminNotification extends BaseModel
                 $notification->generated_message = $this->getConferenceNotificationMessage($notification);
                 break;
         }
+
+        $notification->ago_time = Services\MyDateTime::getAgo($notification->created_at);
+        $notification->view_url = URL::to('admin/conference_register/detail/' . $notification->id);
+
+        $notification->icon = '';
+        switch ($notification->register_type) {
+            case 'author':
+                $notification->icon = 'fa-user';
+                break;
+            case 'listener':
+                $notification->icon = 'fa-volume-up';
+                break;
+        }
     }
 
     protected function getConferenceNotificationMessage($notification)
@@ -78,7 +96,7 @@ class AdminNotification extends BaseModel
                                 $type = 'listener';
                                 break;
                         }
-                        $message = $conferenceRegister->title . ' ' . $conferenceRegister->first_name . ' ' . $conferenceRegister->last_name . ' registered a conference "' . $conference->name . '" as ' . $type;
+                        $message = '<strong>' . $conferenceRegister->title . ' ' . $conferenceRegister->first_name . ' ' . $conferenceRegister->last_name . '</strong>' . ' registered a conference "' . '<span style="color: #4BCAEF;"><strong>' . $conference->name . '</strong></span>' . '" as ' . $type;
                         break;
                 }
             }
@@ -94,6 +112,21 @@ class AdminNotification extends BaseModel
                     ->where('readed', 0);
 
         return $result->count();
+    }
+
+    public function setReaded($type, $action, $elementId)
+    {
+        $notification = AdminNotification::where('type', $type)
+                        ->where('action', $action)
+                        ->where('element_id', $elementId)
+                        ->first();
+
+        if ($notification) {
+            $notification->readed = 1;
+            $notification->save();
+        }
+
+        return true;
     }
 
 }

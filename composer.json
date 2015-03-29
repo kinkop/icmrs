@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "teepluss/theme": "dev-master"
+        "teepluss/theme": "dev-master",
+        "phpmailer/phpmailer": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
@@ -16,7 +17,8 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php",
             "app/Helpers",
-            "app/Services"
+            "app/Services",
+            "vendor/phpmailer"
 		],
         "psr-0": {
             "Conference": "app/"

@@ -449,6 +449,20 @@ class ConferenceController extends BaseController {
 
                 if ($conferenceRegisterId) {
                     $conferenceRegisterModel->sendInvitePeopleEmail($userId, $conferenceRegisterId, $userRegistred[$i]);
+                    $conferenceListenerModel = new ConferenceListener();
+
+                    $conferenceListenerData = array(
+                        'conference_register_id' => $conferenceRegisterId,
+                        'conference_listener_status_id' => ConferenceListenerStatus::LISTENER_REGISTER
+                    );
+                    $conferenceListenerModel->addConferenceListener($conferenceListenerData);
+
+                    $adminNotificationModel = new AdminNotification();
+                    $adminNotificationModel->addNotification(
+                        AdminNotification::NOTIFICATION_TYPE_CONFERENCE,
+                        AdminNotification::NOTIFICATION_ACTION_REGISTER,
+                        $conferenceRegisterId
+                    );
                 }
 
                 ++$i;
@@ -546,6 +560,13 @@ class ConferenceController extends BaseController {
                 'conference_listener_status_id' => ConferenceListenerStatus::LISTENER_REGISTER
             );
             $conferenceListenerModel->addConferenceListener($data);
+            $conferenceListenerModel->sendListenerRegisterEmail($conferenceRegisterId);
+            $adminNotificationModel = new AdminNotification();
+            $adminNotificationModel->addNotification(
+                AdminNotification::NOTIFICATION_TYPE_CONFERENCE,
+                AdminNotification::NOTIFICATION_ACTION_REGISTER,
+                $conferenceRegisterId
+            );
         }
 
         $conferenceModel = new Conference();

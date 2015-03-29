@@ -1,9 +1,9 @@
-    <h2>Author registration</h2>
+    <h2>Author registration @if ($mode == 'edit') <span style="color: orangered;">(Edit)</span> @endif</h2>
 
     <div>{{ $response_message  }}</div>
 
     <article>
-        <h4>Paper Submission @if ($mode == 'edit') (Edit) @endif</h4>
+        <h4>Paper Submission</h4>
         <p>
             Prospective Authors are kindly invited to submit their formatted full text papers including results, tables, figures and references. All paper submissions will be blind peer reviewed and evaluated based on originality, research content, correctness, relevance to conference, contributions, and readability.
 

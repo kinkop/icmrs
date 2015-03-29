@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.3.12
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 06, 2015 at 03:14 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost
+-- Generation Time: Mar 29, 2015 at 07:09 AM
+-- Server version: 5.5.38-0ubuntu0.12.04.1
+-- PHP Version: 5.5.17-2+deb.sury.org~precise+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,11 +23,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin_notifications`
+--
+
+CREATE TABLE IF NOT EXISTS `admin_notifications` (
+  `id` int(10) unsigned NOT NULL,
+  `type` enum('conference') COLLATE utf8_unicode_ci NOT NULL,
+  `action` enum('register') COLLATE utf8_unicode_ci NOT NULL,
+  `element_id` int(10) unsigned NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `readed` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `conferences`
 --
 
 CREATE TABLE IF NOT EXISTS `conferences` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `code` varchar(100) DEFAULT NULL,
   `url_slug` varchar(100) NOT NULL,
   `name` varchar(150) DEFAULT NULL,
@@ -53,7 +70,7 @@ INSERT INTO `conferences` (`id`, `code`, `url_slug`, `name`, `location`, `status
 --
 
 CREATE TABLE IF NOT EXISTS `conference_details` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `conference_id` int(10) unsigned DEFAULT NULL,
   `information` mediumtext,
   `objectives` mediumtext,
@@ -86,7 +103,7 @@ INSERT INTO `conference_details` (`id`, `conference_id`, `information`, `objecti
 --
 
 CREATE TABLE IF NOT EXISTS `conference_fees` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `conference_id` int(10) unsigned DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `description` text,
@@ -99,11 +116,44 @@ CREATE TABLE IF NOT EXISTS `conference_fees` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `conference_listeners`
+--
+
+CREATE TABLE IF NOT EXISTS `conference_listeners` (
+  `id` int(10) unsigned NOT NULL,
+  `conference_register_id` int(10) unsigned NOT NULL,
+  `conference_listener_status_id` int(10) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `conference_listener_statuses`
+--
+
+CREATE TABLE IF NOT EXISTS `conference_listener_statuses` (
+  `id` int(10) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `cls` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `conference_listener_statuses`
+--
+
+INSERT INTO `conference_listener_statuses` (`id`, `name`, `cls`) VALUES
+(1, 'Register', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `conference_papers`
 --
 
 CREATE TABLE IF NOT EXISTS `conference_papers` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `conference_register_id` int(10) unsigned NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -118,9 +168,31 @@ CREATE TABLE IF NOT EXISTS `conference_papers` (
   `file1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `file2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `file3` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `conference_paper_status_id` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `conference_paper_statuses`
+--
+
+CREATE TABLE IF NOT EXISTS `conference_paper_statuses` (
+  `id` tinyint(4) NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `cls` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `conference_paper_statuses`
+--
+
+INSERT INTO `conference_paper_statuses` (`id`, `name`, `cls`) VALUES
+(1, 'Paper submission', ''),
+(2, 'Sent invite later', ''),
+(3, 'Review paper', '');
 
 -- --------------------------------------------------------
 
@@ -129,14 +201,16 @@ CREATE TABLE IF NOT EXISTS `conference_papers` (
 --
 
 CREATE TABLE IF NOT EXISTS `conference_registers` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `conference_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(10) unsigned DEFAULT NULL,
   `type` enum('author','listener') DEFAULT NULL,
   `registered_date` datetime DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL,
+  `registered_by` int(10) unsigned NOT NULL DEFAULT '0',
+  `admin_readed` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -146,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `conference_registers` (
 --
 
 CREATE TABLE IF NOT EXISTS `conference_slides` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `conference_id` int(10) unsigned NOT NULL,
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `file` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -170,7 +244,7 @@ INSERT INTO `conference_slides` (`id`, `conference_id`, `link`, `file`, `sorting
 --
 
 CREATE TABLE IF NOT EXISTS `conference_topics` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `parent_topic_id` int(10) unsigned NOT NULL,
   `conference_id` int(10) unsigned NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -316,7 +390,7 @@ INSERT INTO `conference_topics` (`id`, `parent_topic_id`, `conference_id`, `name
 --
 
 CREATE TABLE IF NOT EXISTS `contents` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` mediumtext COLLATE utf8_unicode_ci NOT NULL,
@@ -338,7 +412,7 @@ INSERT INTO `contents` (`id`, `alias`, `title`, `content`, `created_at`, `update
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `code` char(10) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -357,7 +431,7 @@ INSERT INTO `countries` (`id`, `code`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -365,22 +439,26 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_group_id` int(10) unsigned NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  `updated_at` datetime DEFAULT NULL,
+  `invited_user_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `is_set_password` tinyint(1) NOT NULL DEFAULT '1',
+  `confirm_register_token` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `remember_token`, `user_group_id`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'admin', '$2y$10$87Qb2mCKVek7oBcGI0VapOzYijt4pXewN6ZYV9JdSRvWlj1fLA/Wa', 'admin', '1oZjCm6DiRKuddJEuaf8YuT57UbZTtgxQ9x2UEilvh0RkazVHSxvAN6S686a', 2, 1, '2014-09-28 08:21:09', '2014-11-02 07:07:13'),
-(8, 'pakinmankong@gmail.com', '$2y$10$.OkP3pNlleiZcqmN4RX6p.1WkJD.CgXpGclVn7FJrKydT6YcSEEAS', 'pakinmankong@gmail.com', 'QEIOUuG8iwP7vcgdW9ospEJTU7ihaikWBTT8Pbg7ikfrA0RB5qZGHCZq0E6s', 4, 1, '2014-10-26 06:38:45', '2014-11-02 05:05:03'),
-(9, 'test@gmail.com', '$2y$10$hbV1oO4..9RDK.zbOhx.buUeqmz4L0fq9gKhoHOSscfGJyDCa0iju', 'test@gmail.com', 'hFahhtkDFTlKR0WvuSDExkNOHneVkFpSD73Wj6L8IZKrktynHcf9M98qz5Le', 4, 1, '2014-10-31 02:33:40', '2014-10-31 02:33:57'),
-(10, 'sdfdf@gmail.com', '$2y$10$6XWaxb55n197qpKQOXj1Fu3buvdLDmp.ZMNKIvE8Kt/Yg4ROFQedu', 'sdfdf@gmail.com', 'fkr57ZGqwNDm3qMN3Ew7W154ZrRclbbC6gX0SxhJEqxHzBxdlDsvuhQ5LGwc', 4, 1, '2014-11-02 07:11:20', '2014-11-02 07:12:32'),
-(11, 'mascha_nu@hotmail.com', '$2y$10$nvFBXjMrAe7PIO9f6ki47uGDD5G0ZDtyIMOY7ZtMH/W/OmLznc9sC', 'mascha_nu@hotmail.com', 'uQXSP1qnPH4pCCINYD3EsZFdB97ilbfP6gC1495fdp6GPlQCUZxm28O7dRv1', 4, 1, '2014-11-02 07:13:42', '2014-12-21 06:30:34'),
-(12, 'sadsadsdsa@gmail.com', '$2y$10$oBArRCvMvsvyYRt7cwMfRep0xXg8JSaXcLxxdtF0XZmt0hPOi2Uri', 'sadsadsdsa@gmail.com', NULL, 4, 1, '2014-11-02 07:14:02', '2014-11-02 07:14:02'),
-(13, 'pakin_comsci04@hotmail.com', '$2y$10$9s6HKNH5YYOW67gUjdMPW.EkD2VvroDcIWlPCwoAa9ed0BNlClCYu', 'pakin_comsci04@hotmail.com', NULL, 4, 1, '2014-11-02 09:27:56', '2014-11-02 09:27:56'),
-(14, 'research.wutthikorn@gmail.com', '$2y$10$6JaR5Smg0Qw1AnOnQCZ20.60YUr3pkWbN5YyFsiZqE85SsW51pRKu', 'research.wutthikorn@gmail.com', NULL, 4, 1, '2014-12-08 05:21:53', '2014-12-08 05:21:53');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `remember_token`, `user_group_id`, `status`, `created_at`, `updated_at`, `invited_user_id`, `is_set_password`, `confirm_register_token`) VALUES
+(3, 'admin', '$2y$10$/CFihnUIAteESdQz1Hw5tetRoRAUyYC4v/L1tUpiHC6wJlJGOsa7i', 'admin', 'bNUUEEmVRxJ0a6FTwYv8zsJHAyTwNgumWjeGZIPnQohPNhn0eYYd9aUWBvqo', 2, 1, '2014-09-28 08:21:09', '2015-03-29 06:15:20', 0, 1, ''),
+(8, 'pakinmankong@gmail.com', '$2y$10$.OkP3pNlleiZcqmN4RX6p.1WkJD.CgXpGclVn7FJrKydT6YcSEEAS', 'pakinmankong@gmail.com', 'vOMST2qqqSA11wAvxzxD5cVU2JX5JHtXAHtI16YOrvQIt1T03HxhJMnYKFwu', 4, 1, '2014-10-26 06:38:45', '2015-03-29 07:07:52', 0, 1, ''),
+(9, 'test@gmail.com', '$2y$10$hbV1oO4..9RDK.zbOhx.buUeqmz4L0fq9gKhoHOSscfGJyDCa0iju', 'test@gmail.com', 'hFahhtkDFTlKR0WvuSDExkNOHneVkFpSD73Wj6L8IZKrktynHcf9M98qz5Le', 4, 1, '2014-10-31 02:33:40', '2014-10-31 02:33:57', 0, 1, ''),
+(10, 'sdfdf@gmail.com', '$2y$10$6XWaxb55n197qpKQOXj1Fu3buvdLDmp.ZMNKIvE8Kt/Yg4ROFQedu', 'sdfdf@gmail.com', 'fkr57ZGqwNDm3qMN3Ew7W154ZrRclbbC6gX0SxhJEqxHzBxdlDsvuhQ5LGwc', 4, 1, '2014-11-02 07:11:20', '2014-11-02 07:12:32', 0, 1, ''),
+(11, 'mascha_nu@hotmail.com', '$2y$10$nvFBXjMrAe7PIO9f6ki47uGDD5G0ZDtyIMOY7ZtMH/W/OmLznc9sC', 'mascha_nu@hotmail.com', 'uQXSP1qnPH4pCCINYD3EsZFdB97ilbfP6gC1495fdp6GPlQCUZxm28O7dRv1', 4, 1, '2014-11-02 07:13:42', '2014-12-21 06:30:34', 0, 1, ''),
+(12, 'sadsadsdsa@gmail.com', '$2y$10$oBArRCvMvsvyYRt7cwMfRep0xXg8JSaXcLxxdtF0XZmt0hPOi2Uri', 'sadsadsdsa@gmail.com', NULL, 4, 1, '2014-11-02 07:14:02', '2014-11-02 07:14:02', 0, 1, ''),
+(14, 'research.wutthikorn@gmail.com', '$2y$10$6JaR5Smg0Qw1AnOnQCZ20.60YUr3pkWbN5YyFsiZqE85SsW51pRKu', 'research.wutthikorn@gmail.com', NULL, 4, 1, '2014-12-08 05:21:53', '2014-12-08 05:21:53', 0, 1, ''),
+(18, 'pakin1@gmail.com', '$2y$10$M.vT4bfmjEeWaBzI5cPQvOfhQpJWuLwMXFdG.f7NYHfopNlGGACuW', 'pakin1@gmail.com', NULL, 4, 0, '2015-01-11 10:04:11', '2015-01-11 10:04:11', 8, 0, ''),
+(19, 'pakin_comsci03@hotmail.com', '$2y$10$5wRvj784P4wL5vz3DPE51eE1SxjPURCAMY00LtjQguJaCHc2YxbMC', 'pakin_comsci03@hotmail.com', 'DiJuVqDCEP8vYVq1Tr14ljJ1d1gwBmOqXv6jNzEsPDSiqSupzNr9aXjEJL8j', 4, 0, '2015-03-29 06:29:36', '2015-03-29 06:30:34', 8, 1, '');
 
 -- --------------------------------------------------------
 
@@ -389,7 +467,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `remember_token`, `u
 --
 
 CREATE TABLE IF NOT EXISTS `user_details` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `title` varchar(50) DEFAULT NULL,
   `first_name` varchar(100) DEFAULT NULL,
@@ -400,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `country_id` int(10) unsigned NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_details`
@@ -408,13 +486,14 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 
 INSERT INTO `user_details` (`id`, `user_id`, `title`, `first_name`, `last_name`, `department`, `institution`, `city`, `country_id`, `created_at`, `updated_at`) VALUES
 (3, 3, 'Mr.', 'Admin', 'Admin', 'Programmer2', 'Attendee2', 'Bangkok Thailand', 1, '2014-09-28 08:21:09', '2014-10-26 06:28:05'),
-(6, 8, 'Mr.', 'Pakin2', 'Mankong2', 'Programmer', 'Attendee', 'Bangkok Thailand', 1, '2014-10-26 06:38:45', '2014-10-31 02:33:06'),
+(6, 8, 'Mr.', 'ภาคิณ', 'มั่นคง', 'Programmer', 'Attendee', 'Bangkok Thailand', 1, '2014-10-26 06:38:45', '2014-10-31 02:33:06'),
 (7, 9, 'Mr.', 'ddd', 'ddd', 'dd', 'ddd', 'sdsd', 1, '2014-10-31 02:33:40', '2014-10-31 02:33:40'),
 (8, 10, 'Mr.', 'dddd', 'ddd', 'dd', 'dd', 'dsfsd', 1, '2014-11-02 07:11:20', '2014-11-02 07:11:20'),
 (9, 11, 'Mr.', 'Anuphan', 'Suttimarn', 'ssru', 'ssru', 'thaialand', 1, '2014-11-02 07:13:42', '2014-11-02 07:13:42'),
 (10, 12, 'Mr.', 'asdsad', 'sadsadsa', 'dsad', 'sadsad', 'sadsad', 1, '2014-11-02 07:14:02', '2014-11-02 07:14:02'),
-(11, 13, 'Mr.', 'Pakin22', 'Mankong22', 'Department', 'Institution', 'Nonthaburi', 1, '2014-11-02 09:27:57', '2014-11-02 09:27:57'),
-(12, 14, 'Mr.', 'Wutthikorn', 'Malikong', 'Institute for Research and Development', 'Suan Sunandha Rajabhat University', 'Bangkok', 1, '2014-12-08 05:21:53', '2014-12-08 05:21:53');
+(12, 14, 'Mr.', 'Wutthikorn', 'Malikong', 'Institute for Research and Development', 'Suan Sunandha Rajabhat University', 'Bangkok', 1, '2014-12-08 05:21:53', '2014-12-08 05:21:53'),
+(16, 18, '', 'Firstname', 'Lastname', '', '', '', 1, '2015-01-11 10:04:11', '2015-01-11 10:04:11'),
+(17, 19, '', 'Pakin', 'Mankong', '', '', '', 1, '2015-03-29 06:29:36', '2015-03-29 06:29:36');
 
 -- --------------------------------------------------------
 
@@ -423,7 +502,7 @@ INSERT INTO `user_details` (`id`, `user_id`, `title`, `first_name`, `last_name`,
 --
 
 CREATE TABLE IF NOT EXISTS `user_groups` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `alias` varchar(100) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -445,141 +524,185 @@ INSERT INTO `user_groups` (`id`, `alias`, `name`, `created_at`, `updated_at`) VA
 --
 
 --
+-- Indexes for table `admin_notifications`
+--
+ALTER TABLE `admin_notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `conferences`
 --
 ALTER TABLE `conferences`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `url_slug` (`url_slug`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `url_slug` (`url_slug`);
 
 --
 -- Indexes for table `conference_details`
 --
 ALTER TABLE `conference_details`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_conference_details_conferences1_idx` (`conference_id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_conference_details_conferences1_idx` (`conference_id`);
 
 --
 -- Indexes for table `conference_fees`
 --
 ALTER TABLE `conference_fees`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_conference_fees_conferences1_idx` (`conference_id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_conference_fees_conferences1_idx` (`conference_id`);
+
+--
+-- Indexes for table `conference_listeners`
+--
+ALTER TABLE `conference_listeners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `conference_listener_statuses`
+--
+ALTER TABLE `conference_listener_statuses`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `conference_papers`
 --
 ALTER TABLE `conference_papers`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `code` (`code`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `code` (`code`);
+
+--
+-- Indexes for table `conference_paper_statuses`
+--
+ALTER TABLE `conference_paper_statuses`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `conference_registers`
 --
 ALTER TABLE `conference_registers`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_conference_registers_users1_idx` (`user_id`), ADD KEY `fk_conference_registers_conferences1_idx` (`conference_id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_conference_registers_users1_idx` (`user_id`), ADD KEY `fk_conference_registers_conferences1_idx` (`conference_id`);
 
 --
 -- Indexes for table `conference_slides`
 --
 ALTER TABLE `conference_slides`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `conference_topics`
 --
 ALTER TABLE `conference_topics`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contents`
 --
 ALTER TABLE `contents`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `coubtriescol_UNIQUE` (`code`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `coubtriescol_UNIQUE` (`code`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username_UNIQUE` (`username`), ADD UNIQUE KEY `email_UNIQUE` (`email`), ADD KEY `fk_users_user_groups_idx` (`user_group_id`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username_UNIQUE` (`username`), ADD UNIQUE KEY `email_UNIQUE` (`email`), ADD KEY `fk_users_user_groups_idx` (`user_group_id`);
 
 --
 -- Indexes for table `user_details`
 --
 ALTER TABLE `user_details`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_user_details_users1_idx` (`user_id`), ADD KEY `fk_user_details_countries1_idx` (`country_id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_user_details_users1_idx` (`user_id`), ADD KEY `fk_user_details_countries1_idx` (`country_id`);
 
 --
 -- Indexes for table `user_groups`
 --
 ALTER TABLE `user_groups`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `alias_UNIQUE` (`alias`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `alias_UNIQUE` (`alias`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `admin_notifications`
+--
+ALTER TABLE `admin_notifications`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `conferences`
 --
 ALTER TABLE `conferences`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `conference_details`
 --
 ALTER TABLE `conference_details`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `conference_fees`
 --
 ALTER TABLE `conference_fees`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `conference_listeners`
+--
+ALTER TABLE `conference_listeners`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `conference_listener_statuses`
+--
+ALTER TABLE `conference_listener_statuses`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `conference_papers`
 --
 ALTER TABLE `conference_papers`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `conference_paper_statuses`
+--
+ALTER TABLE `conference_paper_statuses`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `conference_registers`
 --
 ALTER TABLE `conference_registers`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `conference_slides`
 --
 ALTER TABLE `conference_slides`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `conference_topics`
 --
 ALTER TABLE `conference_topics`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=125;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=125;
 --
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `user_groups`
 --
 ALTER TABLE `user_groups`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
